@@ -12,7 +12,7 @@ def write(password, mail, address):
             file.close()
 
         except:
-            print('Something went wrong! Cannot tell what?')
+            print('Something went wrong!')
 
 def randomStringwithDigitsAndSymbols(stringLength=10):
     password_characters = string.ascii_letters + string.digits + string.punctuation

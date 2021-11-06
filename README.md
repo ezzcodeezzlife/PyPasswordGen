@@ -1,5 +1,7 @@
 # PyPasswordGen
 
+Generate passwords and automaticly save them in a .txt file with optional additional information.
+
 Your password is 32 characters long and has
 1,380,674,536,088,650,143,049,543,431,455,155,987,400,663,734,997,083,640,156,913,664 combinations.
 

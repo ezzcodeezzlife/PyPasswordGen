@@ -1,32 +1,33 @@
 import random
 import string
 import pyperclip
-from os.path import join
 
 def write(password, mail, address):
-        name = 'generated_passwords.txt'  
+    name = 'generated_passwords.txt'  
+    try:
+        file = open(name,'a+')
+        file.write(""+  password + " " + mail + " " + address + '\n')
+        file.close()
+    except:
+        print('file.write went wrong!')
+    
 
-        try:
-            file = open(name,'a+')
-            file.write(""+  password + " " + mail + " " + address + '\n')
-            file.close()
+class PasswordGenerator:
+    def generate(self, stringlength= 16):
+        password_characters = string.ascii_letters + string.digits + string.punctuation 
+        password = ''.join(random.choice(password_characters) for i in range(stringlength))
 
-        except:
-            print('Something went wrong!')
+        pyperclip.copy(password)
+        print("Copyed password to the clipboard!", )
 
-def randomStringwithDigitsAndSymbols(stringLength=10):
-    password_characters = string.ascii_letters + string.digits + string.punctuation
-    return ''.join(random.choice(password_characters) for i in range(stringLength))
+        print("Save additional info:")
+        mail = input("Mail/Username:")
+        address = input("Address:")
 
-generated_password = randomStringwithDigitsAndSymbols(32)
+        write(password, mail , address)
 
-print("Copyed to the clipboard! : ", generated_password)
+myPasswordGenerator = PasswordGenerator()
+myPasswordGenerator.generate()
 
-pyperclip.copy(generated_password)
 
-print("Save additional info:")
-mail = input("Mail/Username:")
-address = input("Address:")
-
-write(generated_password, mail , address)
-
+    

@@ -13,7 +13,7 @@ def write(password, mail, address):
     
 
 class PasswordGenerator:
-    def generate(self, stringlength= 16):
+    def generate(self, stringlength= 32):
         password_characters = string.ascii_letters + string.digits + string.punctuation 
         password = ''.join(random.choice(password_characters) for i in range(stringlength))
 
